@@ -30,15 +30,15 @@ resource "proxmox_vm_qemu" "test_server" {
   os_type = "cloud-init"
   cores = 2
   sockets = 1
-  cpu = "host"
+  cpu_type = "host"
   memory = 2048
   scsihw = "virtio-scsi-pci"
   bootdisk = "scsi0"
   disk {
-    slot = 0
+    slot = "scsi0"
     # set disk size here. leave it small for testing because expanding the disk takes time.
     size = "10G"
-    type = "scsi"
+    type = "disk"
     storage = "local-lvm"
     iothread = true
   }
