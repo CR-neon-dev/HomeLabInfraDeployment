@@ -45,7 +45,7 @@ resource "proxmox_vm_qemu" "test_server" {
   
   # if you want two NICs, just copy this whole network section and duplicate it
   network {
-    id = ${count.index + 1}
+    id = count.index + 1
     model = "virtio"
     bridge = "vmbr0"
   }
