@@ -1,0 +1,9 @@
+variable "ssh_key" {
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCk+GOCwpqwiHmIVYPeNLrjo/KuyQBaLRu3e11k1PuHAOTJNa7XP87rkpHSnOBuf6KC2cB2VXSX6pxwZXuFlt1YC0ox/XmcAClClGZRNgJtZYgNWXbihNOYzYTyydIMAUWJIf0XZBpIDDKFC8ekZOyiO5GWrnM32DcAWYQmqqGpsxHnuiWGG3TWbD8AjkiJMw0/Rjzlm/msXRltrHSFYhJ+FsiYbvckl1wrgy3FDdHptkVTFVHdYjjSxdZpJFFi0KQ3pZP1YdZeynxDUNFtdZQ1ghstlTMcLNBpnRTY39KAeFvfCKpw5uuhA7nueN7fCbY+adfc9bzQRaMxjM4hmbDFnXNvIx9pK5hMj2KMXUzl0T50o4f1TwVzCRouR+3d3Q+BjjzN1Tl0E6omaCfBWPC8OnAIdzhlt/ioXjoYAqReFkianxu7zamaQMzxL3vpVsxv3EK6Tj7jkJ6UXPWx8x5SEhkvg1vRKHE3lQ70II6EWYD1jJg2H9U9KyGUZxL+uKBKW5rE181IjAJWtlXL4VdzfB6DTtx2TBlVF+MmcHyF2LSFK/lSwPUoLlMhZNVYWKlC8mip4KkDQfYnVFI/K8FQdcZMzpxOLvi2tbqMBJIChCks7Wbphml1ENozq9yYQAMzw/d2FVKvP1O93wPBx6zwTrSF/fwD5gMTswez/9JorQ== crdeveloper@outlook.com"
+}
+variable "proxmox_host" {
+    default = "pve0"
+}
+variable "template_name" {
+    default = "ubuntu-2004-cloudinit-template"
+}
