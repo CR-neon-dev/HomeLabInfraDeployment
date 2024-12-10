@@ -40,11 +40,12 @@ resource "proxmox_vm_qemu" "test_server" {
     size = "10G"
     type = "scsi"
     storage = "local-lvm"
-    iothread = 1
+    iothread = true
   }
   
   # if you want two NICs, just copy this whole network section and duplicate it
   network {
+    id = ${count.index + 1}
     model = "virtio"
     bridge = "vmbr0"
   }
