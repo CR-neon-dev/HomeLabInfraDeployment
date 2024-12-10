@@ -45,16 +45,17 @@ resource "proxmox_vm_qemu" "test_server" {
   
   # if you want two NICs, just copy this whole network section and duplicate it
   network {
-    id = count.index + 1
+    id = 0
     model = "virtio"
     bridge = "vmbr0"
+    tag = 0
 
+  }  
      # the ${count.index + 1} thing appends text to the end of the ip address
   # in this case, since we are only adding a single VM, the IP will
   # be 10.98.1.91 since count.index starts at 0. this is how you can create
   # multiple VMs and have an IP assigned to each (.91, .92, .93, etc.)
     ipconfig0 = "ip=dhcp"
-  }
   # not sure exactly what this is for. presumably something about MAC addresses and ignore network changes during the life of the VM
   lifecycle {
     ignore_changes = [
