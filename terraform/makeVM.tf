@@ -1,7 +1,7 @@
 resource "proxmox_vm_qemu" "cloudinit-example" {
   vmid        = 100
   name        = "test-terraform0"
-  target_node = "pve"
+  target_node = "pve0"
   agent       = 1
   cores       = 2
   memory      = 1024
@@ -15,12 +15,11 @@ resource "proxmox_vm_qemu" "cloudinit-example" {
   cicustom   = "vendor=local:snippets/qemu-guest-agent.yml" # /var/lib/vz/snippets/qemu-guest-agent.yml
   ciupgrade  = true
   nameserver = "1.1.1.1 8.8.8.8"
-  ipconfig0  = "ip=192.168.1.10/24,gw=192.168.1.1,ip6=dhcp"
+  ipconfig0  = "ip=dhcp,gw=192.168.0.1,ip6=dhcp"
   skip_ipv6  = true
   ciuser     = "root"
   cipassword = "Enter123!"
-  sshkeys    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/Pjg7YXZ8Yau9heCc4YWxFlzhThnI+IhUx2hLJRxYE Cloud-Init@Terraform"
-
+  sshkeys    = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCtGZSB6WDLLTFTjitudd5WmZq/YiTUNif8rstbXtUL0frcq6LgbaJrqg6o7iXZQgMRDaB8MGEELt1C+F9Qz8YEdZWkZfIJlocIbJwNppS0mXSavK6lSCuCYh/40FX4UdvQSCDD99w5ZGMob0RuPAxKy6CDva4AHpDyu+sue0JHn6i3GIf/Nv8uHWcrW20vFA4nLBCCd9IwGF7Ih2ctEHUPNxkCN28Fjs1/t9D8+tMFRNDnNsoV3YfL5HnJnOmS5KmwChju7k+HZhMusA9v+9HHwuuwIFEWj/UMJSTJdrj95V/SOTRLc2Jb83lTpkAf8OnxgHtb9SFpY7lWRGX6kKWswBetcH9fH7Zr+YpjKRexHxuQPRiF4KVZt6xym2+NgiHqW0ksvU1zEZD8j6NpbvEs5tyV3+a2g5rDOx1V2hJsuIvrvgFdh3ftD+vkJmoKpUgpROHt6aTYUDcHPJok2BcDkgwurEDdk7fab9aIcGxSUY69NhaY7NGFoNo71FYd2G5FW9BLuY8f1i9XrgKsFXORG87KZ6D0eDkxmilra+mEH6ERuHZ2GzXb745RIzFSPMrqFYUX8Z5wiNnsiTL9BhAwSJHByk+zI4lvEGbnsvMJL/lVpetnf2vACX9rq+lmAHnSf1ulTzLwH0zJXnCfOK7XcPEbY+WkujrM8iIvmaeTnQ== root@pve0"
   # Most cloud-init images require a serial device for their display
   serial {
     id = 0
