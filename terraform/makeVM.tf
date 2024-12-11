@@ -12,7 +12,7 @@ resource "proxmox_vm_qemu" "cloudinit-example" {
   automatic_reboot = true
 
   # Cloud-Init configuration
-  cicustom   = "vendor=local:snippets/qemu-guest-agent.yml" # /var/lib/vz/snippets/qemu-guest-agent.yml
+  cicustom   = "/root/HomeLabInfraDeployment/VM/var/lib/vz/snippets/qemu-guest-agent.yml" # /var/lib/vz/snippets/qemu-guest-agent.yml
   ciupgrade  = true
   nameserver = "1.1.1.1 8.8.8.8"
   ipconfig0  = "ip=dhcp,gw=192.168.0.1,ip6=dhcp"
