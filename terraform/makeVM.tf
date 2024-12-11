@@ -1,5 +1,5 @@
 resource "proxmox_vm_qemu" "cloudinit-example" {
-  vmid        = 100
+  vmid        = 0 
   name        = "test-terraform0"
   target_node = "pve0"
   agent       = 1
