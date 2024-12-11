@@ -60,6 +60,7 @@ terraform {
       version = "3.0.1-rc6"
     }
   }
+}
 
 provider "proxmox" {
   # url is the hostname (FQDN if you have one) for the proxmox host you'd like to connect to to issue the commands. my proxmox host is 'prox-1u'. Add /api2/json at the end for the API
@@ -70,5 +71,4 @@ provider "proxmox" {
   pm_api_token_secret = "9c069376-95a5-4f86-931e-3897a4e1584f"
   # leave tls_insecure set to true unless you have your proxmox SSL certificate situation fully sorted out (if you do, you will know)
   pm_tls_insecure = true
-}
 }
