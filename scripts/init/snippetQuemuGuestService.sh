@@ -17,12 +17,19 @@ echo "Creating or replacing $FILE."
 cat <<EOL > "$FILE"
 # Contents of qemu-guest-agent.yml
 # Add your Cloud-Init configuration here
+# /var/lib/vz/snippets/qemu-guest-agent.yml
+packages:
+  - qemu-guest-agent
+
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: true
 
 runcmd:
-  - apt update
-  - apt install -y qemu-guest-agent
+  - systemctl enable qemu-guest-agent
   - systemctl start qemu-guest-agent
-
 
 EOL
 
