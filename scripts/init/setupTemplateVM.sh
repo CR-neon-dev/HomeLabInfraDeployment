@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #  Debian 12 Cloud-Init image
-wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2
+sudo wget -P / https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2
 
 # Create a VM from the image
 qm create 9000 --name debian12-cloudinit
