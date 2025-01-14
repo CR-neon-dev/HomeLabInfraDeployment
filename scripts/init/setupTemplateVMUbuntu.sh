@@ -23,7 +23,7 @@ sudo virt-customize -a $IMAGE_PATH --install qemu-guest-agent
 qm create 9000 --name ubuntu-cloudinit
 
 # Import Cloud-Init Image 
-#qm set 9000 --scsi0 local-lvm:0,import-from=/root/jammy-server-cloudimg-amd64.img
+qm set 9000 --scsi0 local-lvm:0,import-from=/root/jammy-server-cloudimg-amd64.img
 
 # Create Template from VM
-# qm template 9000
+qm template 9000
